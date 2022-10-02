@@ -4,6 +4,8 @@ import FlashCards from "./FlashCards"
 import Logo from "./Logo"
 
 export default function MainPage(props) {
+    
+
       const { questions } = props
      
 
