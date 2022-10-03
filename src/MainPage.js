@@ -4,13 +4,14 @@ import FlashCards from "./FlashCards"
 import Logo from "./Logo"
 import FooterCompleted from "./FooterCompleted"
 
+
 export default function MainPage(props) {
     const [completed, setCompleted] = useState(0)
-
+    const [start, setStart] = useState(false)
     const { questions } = props
 
     return (
-        <ScreenContainer>
+        <ScreenContainer start={start} setStart={setStart}>
             <Logo />
             {questions.map((quest) => <FlashCards completed={completed} setCompleted={setCompleted} key={quest.id} questions={quest} />)}
 
