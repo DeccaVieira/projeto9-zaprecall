@@ -1,21 +1,30 @@
-import { useState } from "react"
 import styled from "styled-components"
+export default function Buttons(props) {
+  const { completed, setCompleted } = props
 
+  function checkNo() {
+    props.setZap("no")
+    setCompleted(completed + 1)
+  }
+  function checkAlmost() {
+    props.setZap("almost")
+    setCompleted(completed + 1)
+  }
+  function checkZap() {
+    props.setZap("zap")
+    setCompleted(completed + 1)
+  }
 
-export default function Buttons(props){
- 
-  console.log(props.zap)
-  
-    return(
-        
-<ContainerBotao>
-<NoButton><button onClick={() => props.setZap("no")}>Não lembrei</button></NoButton>
-<AlmostButton><button onClick={() => props.setZap("almost")}>Quase não lembrei</button></AlmostButton>
-<ZapButton><button onClick={() => props.setZap("zap")}>ZAp!</button></ZapButton>
-</ContainerBotao>
-    )
+  return (
+
+    <ContainerBotao>
+      <NoButton><button onClick={checkNo}>Não lembrei</button></NoButton>
+      <AlmostButton><button onClick={checkAlmost}>Quase não lembrei</button></AlmostButton>
+      <ZapButton><button onClick={checkZap}>Zap</button></ZapButton>
+    </ContainerBotao>
+  )
 }
-const ContainerBotao = styled.div `
+const ContainerBotao = styled.div`
 display: flex;
 width: 90%;
 justify-content: space-between;

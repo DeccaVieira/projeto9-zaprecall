@@ -6,62 +6,63 @@ import virar from "./components/assets/seta_virar.png"
 import certo from "./components/assets/icone_certo.png"
 import quase from "./components/assets/icone_quase.png"
 import erro from "./components/assets/icone_erro.png"
-export default function FlashCards(props){
-  const { id, title, question, answer } = props.questions
-  const [card, setCard] = useState("closed") 
+
+export default function FlashCards(props) {
+  const { title, question, answer } = props.questions
+  const { completed, setCompleted } = props
+  const [card, setCard] = useState("closed")
   const [showAnswer, setShowAnswer] = useState(false)
-  const [zap, setZap] = useState("") 
+  const [zap, setZap] = useState("")
 
-  
-function virarCard(){
-  console.log(zap)
+
+  function turnCard() {
+    setCard("open")
+  }
+
+  function show() {
+    setShowAnswer(true)
+  }
+
   return (
-    setCard("open"))
-}
-
-function teste(){
-  return setShowAnswer(true)
-}
-    return (
-        <> 
-   {zap === "zap" ?
-   <ZapAnswer>
-   <p>{title}</p>
-<img src={certo} alt="certo"/>
-   </ZapAnswer> : 
-   zap === "almost" ?
-   <Almost>
-   <p>{title}</p>
-  <img src={quase} alt="quase"/>
-   </Almost> : 
-   zap === "no" ?
-   <DontRemember>
-   <p>{title}</p>
-   <img src={erro} alt="erro"/>
-   </DontRemember> :
-
-        card === "closed" ?
-        <PerguntaFechada>
+    <>
+      {zap === "zap" ?
+        <ZapAnswer>
           <p>{title}</p>
-        <img onClick={virarCard} src={seta} alt="seta"/> 
-        </PerguntaFechada> :
-showAnswer === false?
-        <PerguntaAberta>
-          {question}
-<img onClick = {teste} src={virar} alt="virar"/>
-        </PerguntaAberta> :
-        <PerguntaAberta>
-        {answer}
-<Buttons zap={zap} setZap={setZap}/>
-      </PerguntaAberta> 
+          <img src={certo} alt="certo" />
+        </ZapAnswer> :
+        zap === "almost" ?
+          <Almost>
+            <p>{title}</p>
+            <img src={quase} alt="quase" />
+          </Almost> :
+          zap === "no" ?
+            <DontRemember>
+              <p>{title}</p>
+              <img src={erro} alt="erro" />
+            </DontRemember> :
 
-}
+            card === "closed" ?
+              <PerguntaFechada>
+                <p>{title}</p>
+                <img onClick={turnCard} src={seta} alt="seta" />
+              </PerguntaFechada> :
+              showAnswer === false ?
+                <PerguntaAberta>
+                  {question}
+                  <img onClick={show} src={virar} alt="virar" />
+                </PerguntaAberta> :
+                <PerguntaAberta>
+                  {answer}
+                  <Buttons completed={completed} setCompleted={setCompleted} zap={zap} setZap={setZap} />
+                </PerguntaAberta>
+
+      }
 
 
-        </>
+    </>
 
 
-    )
+  )
 }
 const PerguntaAberta = styled.div`
     width: 300px;
@@ -87,7 +88,7 @@ const PerguntaAberta = styled.div`
     right: 10px;
   }
   `
-  const PerguntaFechada = styled.div `
+const PerguntaFechada = styled.div`
     width: 300px;
     height: 35px;
     background-color: #FFFFFF;
@@ -123,34 +124,9 @@ p{
 }
 `
 const DontRemember = styled(PerguntaFechada)`
-
-
 p{
   color:#FF3030;
   text-decoration:line-through;
 }
 `
-const ContainerBotao = styled.div `
-display: flex;
-width: 80%;
-justify-content: space-between;
-margin: 20px;
-color: red;
-button {
-  width: 90px;
-  font-family: 'Recursive';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  color: #FFFFFF;
-  background: red;
-  border-radius: 5px;
-  border: 1px solid blue;
-  padding:5px;
-}
-`
+
