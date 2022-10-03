@@ -12,7 +12,7 @@ export default function FlashCards(props) {
   const { completed, setCompleted } = props
   const [card, setCard] = useState("closed")
   const [showAnswer, setShowAnswer] = useState(false)
-  const [zap, setZap] = useState("")
+  const [zap, setZap] = useState("") 
 
 
   function turnCard() {

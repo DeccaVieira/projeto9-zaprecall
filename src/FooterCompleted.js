@@ -6,7 +6,10 @@ export default function FooterCompleted(props) {
 
 
     return (
-        <FooterConcluidos>{completed}/8 Concluídos</FooterConcluidos>)
+        <FooterConcluidos>{completed}/8 Concluídos</FooterConcluidos>
+        
+        )
+
 }
 const FooterConcluidos = styled.footer`
     width: 100%;
