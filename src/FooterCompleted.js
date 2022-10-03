@@ -6,7 +6,7 @@ export default function FooterCompleted(props) {
 
 
     return (
-        <FooterConcluidos>{completed}/8 Concluídos</FooterConcluidos>
+        <FooterConcluidos data-identifier="flashcard-counter" >{completed}/8 Concluídos</FooterConcluidos>
         
         )
 

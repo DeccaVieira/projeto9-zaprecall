@@ -1,10 +1,12 @@
 import styled from "styled-components"
 export default function Buttons(props) {
   const { completed, setCompleted } = props
-
+  const {icon , setIcon} = props 
+  
   function checkNo() {
     props.setZap("no")
     setCompleted(completed + 1)
+    
   }
   function checkAlmost() {
     props.setZap("almost")
@@ -18,9 +20,9 @@ export default function Buttons(props) {
   return (
 
     <ContainerBotao>
-      <NoButton><button onClick={checkNo}>Não lembrei</button></NoButton>
-      <AlmostButton><button onClick={checkAlmost}>Quase não lembrei</button></AlmostButton>
-      <ZapButton><button onClick={checkZap}>Zap</button></ZapButton>
+      <NoButton><button data-identifier="forgot-btn" onClick={checkNo}>Não lembrei</button></NoButton>
+      <AlmostButton><button data-identifier="almost-forgot-btn" onClick={checkAlmost}>Quase não lembrei</button></AlmostButton>
+      <ZapButton><button data-identifier="zap-btn" onClick={checkZap}>Zap</button></ZapButton>
     </ContainerBotao>
   )
 }

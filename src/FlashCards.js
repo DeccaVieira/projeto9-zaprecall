@@ -26,33 +26,33 @@ export default function FlashCards(props) {
   return (
     <>
       {zap === "zap" ?
-        <ZapAnswer>
+        <ZapAnswer data-identifier="flashcard-index-item">
           <p>{title}</p>
-          <img src={certo} alt="certo" />
+          < img data-identifier="flashcard-status" src={certo} alt="certo" />
         </ZapAnswer> :
         zap === "almost" ?
-          <Almost>
+          <Almost data-identifier="flashcard-index-item">
             <p>{title}</p>
-            <img src={quase} alt="quase" />
+            <img data-identifier="flashcard-status" src={quase} alt="quase" />
           </Almost> :
           zap === "no" ?
-            <DontRemember>
+            <DontRemember data-identifier="flashcard-index-item">
               <p>{title}</p>
-              <img src={erro} alt="erro" />
+              <img data-identifier="flashcard-status" src={erro} alt="erro" />
             </DontRemember> :
 
             card === "closed" ?
-              <PerguntaFechada>
+              <PerguntaFechada data-identifier="flashcard">
                 <p>{title}</p>
-                <img onClick={turnCard} src={seta} alt="seta" />
+                <img data-identifier="flashcard-show-btn" onClick={turnCard} src={seta} alt="seta" />
               </PerguntaFechada> :
               showAnswer === false ?
-                <PerguntaAberta>
-                  {question}
-                  <img onClick={show} src={virar} alt="virar" />
+                <PerguntaAberta >
+                  <span data-identifier="flashcard-question">{question}</span>
+                  <img data-identifier="flashcard-turn-btn" onClick={show} src={virar} alt="virar" />
                 </PerguntaAberta> :
                 <PerguntaAberta>
-                  {answer}
+                 <span data-identifier="flashcard-answer">{answer}</span> 
                   <Buttons completed={completed} setCompleted={setCompleted} zap={zap} setZap={setZap} />
                 </PerguntaAberta>
 

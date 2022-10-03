@@ -13,7 +13,7 @@ export default function MainPage(props) {
     return (
         <ScreenContainer start={start} setStart={setStart}>
             <Logo />
-            {questions.map((quest) => <FlashCards completed={completed} setCompleted={setCompleted} key={quest.id} questions={quest} />)}
+            {questions.map((quest) => <FlashCards data-identifier="flashcard" completed={completed} setCompleted={setCompleted} key={quest.id} questions={quest} />)}
 
             <FooterCompleted completed={completed} setCompleted={setCompleted} />
         </ScreenContainer>

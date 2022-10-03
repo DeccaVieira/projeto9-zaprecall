@@ -12,7 +12,7 @@ export default function StartRecall(props) {
         <ScreenContainer>
             <LogoImg src={logo} alt="Logotipo" />
             <Logot><h1>ZapRecall</h1>
-                <button onClick={StartRecall}>Iniciar Recall!</button>
+                <button data-identifier="start-btn" onClick={StartRecall}>Iniciar Recall!</button>
             </Logot>
         </ScreenContainer>
     )
